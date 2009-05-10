@@ -8,11 +8,11 @@
       %tr
         %td
         %td
-          %form
-            %input{:type => "text", :size => 140}
+          %form{:action => "/say", :method => "POST"}
+            %input{:type => "text", :size => 140, :name => "message"}
             %input{:type => "submit", :value => "add"}
 
       - @posts.each do |post|
         %tr.post
           %td.time= h post.time_str
-          %td.message= h post.message
+          %td.message= post.message
