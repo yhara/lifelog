@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'ramaze'
+require 'models.rb'
 
 class MainController < Ramaze::Controller
   map '/'
