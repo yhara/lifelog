@@ -7,3 +7,7 @@
     %form
       %input
       %input{:type => "submit", :value => "add"}
+
+    .log
+      - @posts.each do |post|
+        .post= h post.inspect
