@@ -4,10 +4,15 @@
   %body
     %h1 LifeLog
 
-    %form
-      %input
-      %input{:type => "submit", :value => "add"}
+    %table.log
+      %tr
+        %td
+        %td
+          %form
+            %input{:type => "text", :size => 140}
+            %input{:type => "submit", :value => "add"}
 
-    .log
       - @posts.each do |post|
-        .post= h post.inspect
+        %tr.post
+          %td.time= h post.time_str
+          %td.message= h post.message

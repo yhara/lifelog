@@ -8,6 +8,10 @@ class Post
   property :id, Serial
   property :posted_at, DateTime
   property :message, String
+
+  def time_str
+    self.posted_at.strftime("%Y-%m-%d %H:%M:%S")
+  end
 end
 
 if $0==__FILE__
