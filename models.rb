@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'dm-core'
 
-DataMapper.setup(:default, "sqlite3://#{File.expand_path(File.dirname __FILE__)}/posts.db")
+DataMapper.setup(:default, "sqlite3://#{LifeLog.options[:db]}")
 
 class Post
   include DataMapper::Resource
