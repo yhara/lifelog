@@ -55,7 +55,8 @@ else
 end
 
 Ramaze::Log.info("Loading database: #{LifeLog.options[:db]}")
-require 'models.rb'
+require __DIR__('../models.rb')
 
 Ramaze::Log.info("Starting server with port #{LifeLog.options[:port]}")
-Ramaze.start :port => LifeLog.options[:port]
+Ramaze.start :port => LifeLog.options[:port], 
+             :root => __DIR__('../')
