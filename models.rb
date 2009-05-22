@@ -13,10 +13,4 @@ class Post
     self.posted_at.strftime("%Y-%m-%d %H:%M:%S")
   end
 end
-
-if $0==__FILE__
-  Post.auto_migrate!
-  Post.create(:posted_at => Time.now, :message => "test.").save
-end
-
-
+Post.auto_upgrade!
