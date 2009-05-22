@@ -12,8 +12,10 @@ Gem::Specification.new do |s|
   s.email = %q{yutaka.hara/at/gmail.com}
   s.executables = ["lifelog"]
   s.files = [
-    "VERSION",
+    "Rakefile",
+     "VERSION",
      "bin/lifelog",
+     "lifelog.gemspec",
      "models.rb",
      "view/index.haml"
   ]
