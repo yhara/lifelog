@@ -1,8 +1,11 @@
 class Main < Controller
   map '/'
+  helper :paginate
+
+  trait :paginate => { :limit => 100, :var => "page" }
 
   def index
-    @posts = Post.all(:order => [:posted_at.desc])
+    @pager = paginate(Post.all(:order => [:posted_at.desc]))
   end
 
   def say
