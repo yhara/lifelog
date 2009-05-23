@@ -6,6 +6,7 @@ require 'controller/init.rb'
 
 module LifeLog
   include Innate::Optioned
+  VERSION = File.read(__DIR__("../VERSION"))
 
   options.dsl do
     o "Path of config file", 
@@ -14,6 +15,8 @@ module LifeLog
       :db, File.expand_path("~/.lifelog.db")
     o "Port number", 
       :port, 7012
+    o "Whether to skip creating table :posts",
+      :no_create_post_table, false
   end
 
   def self.parse_argv!
@@ -24,9 +27,13 @@ module LifeLog
       o.on("--db DB_PATH"){|path| 
         LifeLog.options[:db] = File.expand_path(path, Dir.pwd)
       }
+      o.on("--from-001"){
+        LifeLog.options[:no_create_post_table] = true
+      }
       o.on("--port N"){|port|
         LifeLog.options[:port] = port
       }
+      o.on("--version"){ puts VERSION; exit }
       o.on("--help"){ puts o.to_s; exit }
     }.parse!(ARGV)
   end
@@ -42,7 +49,7 @@ module LifeLog
 
   def self.load_models(db)
     Ramaze::Log.info("Loading database: #{db}")
-    require __DIR__('../models.rb')
+    require __DIR__('../model/init.rb')
   end
 
   def self.start(port)

@@ -1,7 +1,4 @@
-require 'rubygems'
-require 'dm-core'
-
-DataMapper.setup(:default, "sqlite3://#{LifeLog.options[:db]}")
+#require 'dm-timestamps'
 
 class Post
   include DataMapper::Resource
@@ -13,4 +10,3 @@ class Post
     self.posted_at.strftime("%Y-%m-%d %H:%M:%S")
   end
 end
-Post.auto_upgrade!
