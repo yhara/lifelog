@@ -12,8 +12,7 @@ Gem::Specification.new do |s|
   s.email = %q{yutaka.hara/at/gmail.com}
   s.executables = ["lifelog"]
   s.extra_rdoc_files = [
-    "README.html",
-     "README.md"
+    "README.md"
   ]
   s.files = [
     "README.md",
