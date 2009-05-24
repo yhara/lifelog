@@ -15,7 +15,7 @@ table do
         h post.time_str
       }
       td(:class => "message"){
-        h post.message
+        format_message(h post.message)
       }
     end
   end

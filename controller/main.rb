@@ -16,4 +16,16 @@ class Main < Controller
 
     redirect '/'
   end
+
+  def search(type, value)
+    type
+  end
+
+  private
+
+  def format_message(msg)
+    msg.gsub(/#(\S+)/){
+      self.anchor("##{$1}", :search, :tag, $1)
+    }
+  end
 end
