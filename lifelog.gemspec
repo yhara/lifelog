@@ -2,22 +2,32 @@
 
 Gem::Specification.new do |s|
   s.name = %q{lifelog}
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Yutaka HARA"]
-  s.date = %q{2009-05-23}
+  s.date = %q{2009-05-24}
   s.default_executable = %q{lifelog}
   s.description = %q{A lifelogging tool written in Ramaze}
   s.email = %q{yutaka.hara/at/gmail.com}
   s.executables = ["lifelog"]
+  s.extra_rdoc_files = [
+    "README.html",
+     "README.md"
+  ]
   s.files = [
-    "Rakefile",
+    "README.md",
+     "Rakefile",
      "VERSION",
      "bin/lifelog",
+     "controller/init.rb",
+     "controller/main.rb",
+     "layout/default.ges",
      "lifelog.gemspec",
-     "models.rb",
-     "view/index.haml"
+     "model/init.rb",
+     "model/migrations.rb",
+     "model/models.rb",
+     "view/index.ges"
   ]
   s.has_rdoc = true
   s.homepage = %q{http://github.com/yhara/lifelog}
@@ -45,4 +55,3 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<do_sqlite3>, [">= 0"])
   end
 end
-
