@@ -4,6 +4,11 @@ LifeLog
 Install
 -------
 
+Do not install :-) or you may lose your data.
+This is early alpha release.
+
+If you're brave enough, try:
+
     $ sudo gem install ramaze datamapper do_sqlite3
     $ sudo gem install yhara-lifelog
 
