@@ -6,10 +6,11 @@ class Post
   REXP_TAG = /#(\S+)/
 
   property :id, Serial
-  property :posted_at, DateTime
-  property :message, String
 
-  validates_length :message, :max => 1000
+  property :posted_at, DateTime
+  validates_present :posted_at
+
+  property :message, String, :length => (1..420)
 
   has n, :taggings
   has n, :tags, :through => :taggings, :mutable => true
