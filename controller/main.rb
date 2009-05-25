@@ -13,7 +13,7 @@ class Main < Controller
       :posted_at => Time.now,
       :message => request.params["message"],
     })
-    raise "failed to save" if post.id.nil?
+    raise "failed to save post" if post.id.nil?
 
     redirect '/'
   end
