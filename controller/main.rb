@@ -18,7 +18,16 @@ class Main < Controller
   end
 
   def search(type, value)
-    type
+    case type
+    when "tag"
+      @pager = paginate(Post.all({
+        "taggings.tag_id" => Tag.first(:name => value).id,
+        :order => [:posted_at.desc]
+      }))
+      render_view :index
+    else
+      raise "unknown search type: #{type}"
+    end
   end
 
   private
