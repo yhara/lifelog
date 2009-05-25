@@ -9,10 +9,11 @@ class Main < Controller
   end
 
   def say
-    Post.create({
+    post = Post.create({
       :posted_at => Time.now,
       :message => request.params["message"],
     })
+    raise "failed to save" if post.id.nil?
 
     redirect '/'
   end

@@ -4,10 +4,11 @@ class Tag
   property :id, Serial
   property :name, String
 
+  validates_is_unique :name
+  validates_length :name, :max => 1000
+
   has n, :taggings
   has n, :post, :through => :taggings, :mutable => true
-
-  validates_is_unique :name
 end
 
 class Tagging

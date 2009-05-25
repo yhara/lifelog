@@ -9,6 +9,8 @@ class Post
   property :posted_at, DateTime
   property :message, String
 
+  validates_length :message, :max => 1000
+
   has n, :taggings
   has n, :tags, :through => :taggings, :mutable => true
 
