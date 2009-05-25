@@ -22,8 +22,6 @@ end
 
 migration 2, :create_tags do
   up{
-    drop_table :tags
-    drop_table :taggings
     create_table :tags do
       column :id, Integer, :serial => true
       column :name, String
