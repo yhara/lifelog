@@ -14,8 +14,34 @@ class Post
   has n, :taggings
   has n, :tags, :through => :taggings, :mutable => true
 
+  before :save, :create_tags
+  after :save, :add_tags
+
   def time_str
     self.posted_at.strftime("%Y-%m-%d %H:%M:%S")
+  end
+
+  def create_tags
+    if includes_tag?
+      scrape_tags.each do |tag_name|
+        if Tag.first(:name => tag_name).nil?
+          tag = Tag.create(:name => tag_name)
+          raise "failed to save tag" if tag.id.nil?
+        end
+      end
+    end
+  end
+
+  def add_tags
+    if includes_tag?
+      scrape_tags.each do |tag_name|
+        tag = Tag.first(:name => tag_name)
+        raise "<BUG> tag not found" if tag.nil?
+
+        tagging = Tagging.create(:post => self, :tag => tag)
+        raise "failed to save tagging" if tagging.id.nil?
+      end
+    end
   end
 
   private
