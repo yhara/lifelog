@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{lifelog}
-  s.version = "0.0.2"
+  s.version = "0.0.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Yutaka HARA"]
-  s.date = %q{2009-05-24}
+  s.date = %q{2009-05-26}
   s.default_executable = %q{lifelog}
   s.description = %q{A lifelogging tool written in Ramaze}
   s.email = %q{yutaka.hara/at/gmail.com}
@@ -25,7 +25,8 @@ Gem::Specification.new do |s|
      "lifelog.gemspec",
      "model/init.rb",
      "model/migrations.rb",
-     "model/models.rb",
+     "model/post.rb",
+     "model/tag.rb",
      "view/index.ges"
   ]
   s.has_rdoc = true
