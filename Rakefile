@@ -15,3 +15,8 @@ Jeweler::Tasks.new do |gemspec|
   gemspec.add_dependency('dm-core')
   gemspec.add_dependency('do_sqlite3')
 end
+
+desc "install current source as gem"
+task :dogfood => [:gemspec, :build] do
+  sh "sudo gem install pkg/lifelog-#{File.read("VERSION").chomp}.gem"
+end
