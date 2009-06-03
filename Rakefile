@@ -20,3 +20,14 @@ desc "install current source as gem"
 task :dogfood => [:gemspec, :build] do
   sh "sudo gem install pkg/lifelog-#{File.read("VERSION").chomp}.gem"
 end
+
+desc "uninstall temporary gem and install from github"
+task :nodogfood do
+  sh "sudo gem uninstall lifelog"
+  sh "sudo gem install yhara-lifelog"
+end
+
+desc "check for gem to be built"
+task :stalk do
+  sh "gemstalk yhara lifelog"
+end
