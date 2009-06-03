@@ -39,3 +39,10 @@ describe Post do
     post.tags.should == [foo, bar]
   end
 end
+
+describe Tag do
+  it 'should check uniqueness' do
+    Tag.create(:name => "foo")
+    Tag.create(:name => "foo").id.should == nil
+  end
+end
