@@ -1,0 +1,2 @@
+require 'ramaze/spec/bacon'
+
