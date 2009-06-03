@@ -25,4 +25,17 @@ describe Main do
       get('/say?message=test')
     }.should.not.change{ Post.count }
   end
+
+  # searching by tags
+
+  it 'searches tagged posts' do
+    post('/say', :message => "#foo test1")
+    post('/say', :message => "#foo test2")
+    post('/say', :message => "#bar test3")
+
+    get('/search/tag/foo')
+    last_response.should =~ /test1/
+    last_response.should =~ /test2/
+    last_response.should.not =~ /test3/
+  end
 end
