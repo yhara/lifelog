@@ -20,7 +20,9 @@ describe Main do
     last_response.should =~ /This is test/
   end
 
-#  it 'should not accept a post not via POST method' do
-#    get('/say?message=test').status.should != 200
-#  end
+  it 'should not create a post via GET method' do
+    lambda{
+      get('/say?message=test')
+    }.should.not.change{ Post.count }
+  end
 end

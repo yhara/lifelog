@@ -9,6 +9,8 @@ class Main < Controller
   end
 
   def say
+    redirect_referer unless request.post?
+
     post = Post.create({
       :posted_at => Time.now,
       :message => request.params["message"],
