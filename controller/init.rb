@@ -1,7 +1,6 @@
 class Controller < Ramaze::Controller
   layout 'default'
-  engine :Gestalt
-  helper :gestalt
+  engine :Haml
 end
 
 require 'controller/main.rb'
