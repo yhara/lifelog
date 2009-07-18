@@ -1,7 +1,8 @@
 require 'dm-core'
 require 'dm-validations'
 require 'dm-aggregates' # needed for #count in spec
-DataMapper.setup(:default, "sqlite3://#{LifeLog.options[:db]}")
+db_path = RubyStation.data_path("lifelog.db")
+DataMapper.setup(:default, "sqlite3://#{db_path}")
 
 require __DIR__('./post.rb')
 require __DIR__('./tag.rb')
