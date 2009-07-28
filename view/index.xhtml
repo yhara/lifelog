@@ -1,0 +1,25 @@
+<table>
+  <tr>
+    <td></td>
+    <td>
+      <form action="say" method="POST">
+        <input type="text" name="message" size="120" />
+        <input type="submit" value="add" />
+      </form>
+    </td>
+  </tr>
+
+  <?r @pager.each do |post| ?>
+  <tr>
+    <td class="time">#{h post.time_str}</td>
+    <td class="message">#{format_message(h post.message)}</td>
+  </tr>
+  <?r end ?>
+
+</table>
+
+<?r if @pager.needed? ?>
+<div class="pager">
+  #{@pager.navigation}
+</div>
+<?r end ?>

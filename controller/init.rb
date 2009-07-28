@@ -1,6 +1,6 @@
 class Controller < Ramaze::Controller
   layout 'default'
-  engine :Haml
+  engine :Etanni
 end
 
 require 'controller/main.rb'
