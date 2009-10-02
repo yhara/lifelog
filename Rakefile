@@ -15,7 +15,7 @@ Jeweler::Tasks.new do |gemspec|
   gemspec.add_dependency('do_sqlite3', '= 0.10.0')
   gemspec.add_dependency('dm-core', '= 0.10.1')
   gemspec.add_dependency('dm-validations', '= 0.10.1')
-  gemspec.add_dependency('dm-aggregations', '= 0.10.1')
+  gemspec.add_dependency('dm-aggregates', '= 0.10.1')
 end
 
 desc "install current source as gem"
