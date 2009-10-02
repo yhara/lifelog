@@ -11,9 +11,11 @@ Jeweler::Tasks.new do |gemspec|
   gemspec.homepage = "http://github.com/yhara/lifelog"
   gemspec.description = gemspec.summary
   gemspec.authors = ["Yutaka HARA"]
-  gemspec.add_dependency('ramaze', '= 2009.06.12')
-  gemspec.add_dependency('dm-core')
-  gemspec.add_dependency('do_sqlite3')
+  gemspec.add_dependency('ramaze', '= 2009.10')
+  gemspec.add_dependency('do_sqlite3', '= 0.10.0')
+  gemspec.add_dependency('dm-core', '= 0.10.1')
+  gemspec.add_dependency('dm-validations', '= 0.10.1')
+  gemspec.add_dependency('dm-aggregations', '= 0.10.1')
 end
 
 desc "install current source as gem"
